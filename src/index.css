@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #3B82F6;
+  --color-secondary: #8B5CF6;
+}
+
+* {
+  cursor: none;
+}
+
+body {
+  cursor: none;
+}
+
+/* Hide default cursor on interactive elements */
+a,
+button,
+[role="button"] {
+  cursor: none;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Performance optimizations */
+.motion-div {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+}
+
+/* Custom scrollbar - Simplified */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: #374151;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-secondary);
+}
