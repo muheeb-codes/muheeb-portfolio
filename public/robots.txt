@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Sitemap for production site
+Sitemap: https://muheebs-portfolio.netlify.app/sitemap.xml
+
+# If you ever want to temporarily block all crawlers for staging, uncomment:
+# User-agent: *
+# Disallow: /

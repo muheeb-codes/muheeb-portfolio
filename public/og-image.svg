@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0ea5e9" />
+  <g fill="#fff" font-family="Inter, Arial, sans-serif">
+    <text x="60" y="280" font-size="64" font-weight="700">Muheeb Ahmed</text>
+    <text x="60" y="360" font-size="36" opacity="0.95">Web Developer — React • TypeScript • Node</text>
+  </g>
+</svg>
