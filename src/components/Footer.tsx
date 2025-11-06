@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Heart, Code2 } from 'lucide-react';
-import { Github, Linkedin, Twitter } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
@@ -34,42 +33,17 @@ const Footer: React.FC = () => {
             <span>by Muheeb Ahmed</span>
           </div>
 
-          <div className="mt-8 pt-8 border-t border-gray-700">
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <div className="flex items-center space-x-4">
-                <a
-                  href="https://github.com/muheeb-codes"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Muheeb's GitHub"
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  <Github size={20} />
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/muheeb-ahmed-4a7b83367/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Muheeb's LinkedIn"
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  <Linkedin size={20} />
-                </a>
-                <a
-                  href="https://x.com/MuheebAhme2025"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Muheeb's X"
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  <Twitter size={20} />
-                </a>
-              </div>
+          <div className="mt-6 flex items-center justify-center gap-4">
+            <a href="https://github.com/muheeb-codes" className="text-gray-300 hover:text-white" rel="noopener noreferrer" target="_blank">GitHub</a>
+            <a href="https://www.linkedin.com/in/muheeb-ahmed-4a7b83367/" className="text-gray-300 hover:text-white" rel="noopener noreferrer" target="_blank">LinkedIn</a>
+            <a href="https://x.com/MuheebAhme2025" className="text-gray-300 hover:text-white" rel="noopener noreferrer" target="_blank">X</a>
+            <a href="/about.html" className="text-gray-300 hover:text-white">About</a>
+          </div>
 
-              <p className="text-gray-400 text-sm">
-                © {new Date().getFullYear()} Muheeb Ahmed. All rights reserved.
-              </p>
-            </div>
+          <div className="mt-8 pt-8 border-t border-gray-700">
+            <p className="text-gray-400 text-sm">
+              © {new Date().getFullYear()} Muheeb Ahmed. All rights reserved.
+            </p>
           </div>
         </motion.div>
       </div>

@@ -94,7 +94,12 @@ const SkillsRadar: React.FC = () => {
       <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center">
         Skills Overview
       </h3>
-      <div className="h-80">
+      <div style={{ width: '100%', height: 'min(40vh, 360px)' }} className="w-full">
+        {/*
+          Responsive container: height is the minimum of 40vh and 360px so the chart
+          scales on small and large screens. Chart.js is set to responsive:true and
+          maintainAspectRatio:false so it will fill this parent container.
+        */}
         <Radar data={data} options={options} />
       </div>
     </motion.div>
