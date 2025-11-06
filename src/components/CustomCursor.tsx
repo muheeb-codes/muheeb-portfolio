@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useCallback } from 'react';
+import { createPortal } from 'react-dom';
 import { motion } from 'framer-motion';
 
 const CustomCursor: React.FC = () => {
@@ -44,11 +45,16 @@ const CustomCursor: React.FC = () => {
     };
   }, [updateMousePosition]);
 
-  return (
-    <>
+  // Render cursor into a portal attached to document.body so it sits above other stacking contexts
+  const cursor = (
+    <div
+      style={{ position: 'fixed', top: 0, left: 0, pointerEvents: 'none', zIndex: 999999 }}
+      aria-hidden="true"
+    >
       {/* Main cursor */}
       <motion.div
-        className="fixed top-0 left-0 w-4 h-4 bg-blue-600 rounded-full pointer-events-none z-50 mix-blend-difference"
+        className="fixed top-0 left-0 w-4 h-4 bg-blue-600 rounded-full pointer-events-none mix-blend-difference"
+        style={{ willChange: 'transform' }}
         animate={{
           x: mousePosition.x - 8,
           y: mousePosition.y - 8,
@@ -63,7 +69,8 @@ const CustomCursor: React.FC = () => {
       
       {/* Cursor trail */}
       <motion.div
-        className="fixed top-0 left-0 w-8 h-8 border-2 border-blue-600 rounded-full pointer-events-none z-40"
+        className="fixed top-0 left-0 w-8 h-8 border-2 border-blue-600 rounded-full pointer-events-none"
+        style={{ willChange: 'transform' }}
         animate={{
           x: mousePosition.x - 16,
           y: mousePosition.y - 16,
@@ -75,8 +82,14 @@ const CustomCursor: React.FC = () => {
           damping: 15,
         }}
       />
-    </>
+    </div>
   );
+
+  if (typeof document !== 'undefined') {
+    return createPortal(cursor, document.body);
+  }
+
+  return null;
 };
 
 export default CustomCursor;
