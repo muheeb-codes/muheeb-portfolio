@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, ExternalLink, Github, Clock, Users, Target, Lightbulb, CheckCircle } from 'lucide-react';
+import { X, ExternalLink, Github, Clock, Target, Lightbulb, CheckCircle } from 'lucide-react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
@@ -111,6 +111,7 @@ const InventoryManager = {
                 <button
                   onClick={onClose}
                   className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full transition-colors"
+                  aria-label="Close case study"
                 >
                   <X size={24} className="text-gray-600 dark:text-gray-300" />
                 </button>

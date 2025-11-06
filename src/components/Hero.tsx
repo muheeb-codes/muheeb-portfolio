@@ -95,6 +95,7 @@ const Hero: React.FC = () => {
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
           className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300"
+          aria-label="Scroll to About section"
         >
           <ChevronDown size={32} />
         </motion.button>

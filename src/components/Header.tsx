@@ -73,6 +73,7 @@ const Header: React.FC<HeaderProps> = ({
               whileTap={{ scale: 0.9 }}
               className="hidden md:flex p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 items-center space-x-2"
               title="Open Command Palette (⌘K)"
+              aria-label="Open command palette"
             >
               <Command size={16} />
               <span className="text-xs">⌘K</span>
@@ -84,6 +85,7 @@ const Header: React.FC<HeaderProps> = ({
               whileTap={{ scale: 0.9 }}
               className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300"
               title="Customize Theme"
+              aria-label="Open theme customizer"
             >
               <Palette size={20} />
             </motion.button>
@@ -93,6 +95,7 @@ const Header: React.FC<HeaderProps> = ({
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300"
+              aria-label={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
             >
               {darkMode ? <Sun size={20} /> : <Moon size={20} />}
             </motion.button>
@@ -102,6 +105,8 @@ const Header: React.FC<HeaderProps> = ({
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               whileTap={{ scale: 0.95 }}
               className="md:hidden p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300"
+              aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={isMenuOpen}
             >
               {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
             </motion.button>

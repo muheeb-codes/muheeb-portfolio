@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect, useRef, useState, Suspense } from 'react';
 import { motion } from 'framer-motion';
-import SkillsRadar from './SkillsRadar';
+// SkillsRadar is a relatively heavy chart bundle (Chart.js). We'll dynamically import it
+// when the user scrolls the Skills section into view so the initial JS payload is smaller.
 
 const Skills: React.FC = () => {
   const skills = [
@@ -159,7 +160,7 @@ const Skills: React.FC = () => {
           </div>
         </motion.div>
 
-        {/* Skills Radar Chart */}
+        {/* Skills Radar Chart (loads on intersection to defer Chart.js bundle) */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -167,7 +168,7 @@ const Skills: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="mt-16"
         >
-          <SkillsRadar />
+          <SkillsRadarLoader />
         </motion.div>
       </div>
     </section>
@@ -175,3 +176,43 @@ const Skills: React.FC = () => {
 };
 
 export default Skills;
+
+// --- Dynamic loader component placed after export to keep the top of the file readable ---
+const SkillsRadarLoader: React.FC = () => {
+  const placeholderRef = useRef<HTMLDivElement | null>(null);
+  const [RadarComp, setRadarComp] = useState<React.ComponentType | null>(null);
+
+  useEffect(() => {
+    if (!placeholderRef.current) return;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // Dynamically import the SkillsRadar component (and its Chart.js deps)
+          import('./SkillsRadar').then((mod) => {
+            setRadarComp(() => mod.default);
+          }).catch(() => {
+            // ignore errors — fallback UI will remain
+          });
+          observer.disconnect();
+        }
+      });
+    }, { rootMargin: '200px' });
+
+    observer.observe(placeholderRef.current);
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div ref={placeholderRef} style={{ width: '100%' }}>
+      {RadarComp ? (
+        <Suspense fallback={<div className="text-center text-sm text-gray-500">Loading chart...</div>}>
+          <RadarComp />
+        </Suspense>
+      ) : (
+        <div className="text-center text-sm text-gray-500">Chart will load when visible</div>
+      )}
+    </div>
+  );
+};

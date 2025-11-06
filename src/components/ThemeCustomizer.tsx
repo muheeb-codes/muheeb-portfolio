@@ -67,6 +67,7 @@ const ThemeCustomizer: React.FC<ThemeCustomizerProps> = ({ isOpen, onClose }) =>
               <button
                 onClick={onClose}
                 className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full transition-colors"
+                aria-label="Close theme customizer"
               >
                 <X size={20} className="text-gray-600 dark:text-gray-300" />
               </button>

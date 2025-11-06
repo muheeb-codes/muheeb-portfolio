@@ -162,13 +162,14 @@ const Contact: React.FC = () => {
             </motion.div>
 
             <motion.div variants={itemVariants} className="space-y-4">
-              {contactInfo.map((info, index) => (
+              {contactInfo.map((info) => (
                 <motion.a
                   key={info.label}
                   href={info.href}
                   whileHover={{ scale: 1.02, x: 10 }}
                   transition={{ duration: 0.2 }}
                   className="flex items-center space-x-4 p-4 rounded-lg bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors group"
+                  aria-label={info.label}
                 >
                   <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
                     <info.icon className="text-white" size={20} />
@@ -186,7 +187,7 @@ const Contact: React.FC = () => {
                 Follow Me
               </h4>
               <div className="flex space-x-4">
-                {socialLinks.map((link, index) => (
+                {socialLinks.map((link) => (
                   <motion.a
                     key={link.label}
                     href={link.href}
@@ -195,6 +196,7 @@ const Contact: React.FC = () => {
                     whileHover={{ scale: 1.2, y: -5 }}
                     whileTap={{ scale: 0.9 }}
                     className={`w-12 h-12 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center text-gray-600 dark:text-gray-400 transition-all duration-300 ${link.color}`}
+                    aria-label={link.label}
                   >
                     <link.icon size={20} />
                   </motion.a>

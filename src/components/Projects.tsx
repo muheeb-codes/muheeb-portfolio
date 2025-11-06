@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, Suspense } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ExternalLink, Github, X, Clock } from 'lucide-react';
-import ProjectCaseStudy from './ProjectCaseStudy';
+// ProjectCaseStudy uses react-syntax-highlighter and other heavy deps; lazy-load it
+const ProjectCaseStudy = React.lazy(() => import('./ProjectCaseStudy'));
 
 interface Project {
   id: number;
@@ -150,6 +151,7 @@ const Projects: React.FC = () => {
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
                         className="p-2 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/30 transition-colors"
+                        aria-label={`Open live demo of ${project.title}`}
                       >
                         <ExternalLink size={16} />
                       </motion.a>
@@ -160,6 +162,7 @@ const Projects: React.FC = () => {
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
                         className="p-2 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/30 transition-colors"
+                        aria-label={`Open GitHub repository for ${project.title}`}
                       >
                         <Github size={16} />
                       </motion.a>
@@ -299,6 +302,7 @@ const Projects: React.FC = () => {
                   <button
                     onClick={() => setSelectedProject(null)}
                     className="absolute top-4 right-4 p-2 bg-black/50 backdrop-blur-sm rounded-full text-white hover:bg-black/70 transition-colors"
+                    aria-label="Close project modal"
                   >
                     <X size={20} />
                   </button>
@@ -365,11 +369,13 @@ const Projects: React.FC = () => {
         </AnimatePresence>
 
         {/* Case Study Modal */}
-        <ProjectCaseStudy
-          project={caseStudyProject}
-          isOpen={!!caseStudyProject}
-          onClose={() => setCaseStudyProject(null)}
-        />
+        <Suspense fallback={null}>
+          <ProjectCaseStudy
+            project={caseStudyProject}
+            isOpen={!!caseStudyProject}
+            onClose={() => setCaseStudyProject(null)}
+          />
+        </Suspense>
       </div>
     </section>
   );
