@@ -46,6 +46,12 @@
   <meta property="og:type" content="website" />
   <!-- Use a dedicated OG image for social previews. Replace /og-image.svg with a hosted PNG/JPG (1200x630 preferred). -->
   <meta property="og:image" content="/og-image.svg" />
+  <!-- Preload / prefetch hints to reduce LCP and defer heavy chunks -->
+  <link rel="preload" href="/og-image.svg" as="image">
+  <!-- Prefetch the charts chunk so it can be downloaded during idle time (adjust name if your build changes) -->
+  <link rel="prefetch" href="/assets/charts-DacjpbLq.js" as="script">
+  <!-- Preconnect to external image host to speed image fetches -->
+  <link rel="preconnect" href="https://images.pexels.com" crossorigin>
     
     <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
