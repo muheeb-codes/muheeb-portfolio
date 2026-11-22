@@ -96,16 +96,19 @@ export const ScrollWordReveal: React.FC<ScrollWordRevealProps> = ({
   return (
     <p ref={containerRef} className={`flex flex-wrap ${className}`}>
       {tokens.map((tok, i) => (
-        <span key={`${tok.t}-${i}`} className="relative inline-block mr-[0.28em] my-[0.04em]">
-          <span
-            className={`swr-word inline-block ${
-              tok.accent ? 'serif-accent normal-case text-[1.12em]' : ''
-            }`}
-            data-accent={tok.accent}
-          >
-            {tok.t}
+        <React.Fragment key={`${tok.t}-${i}`}>
+          {i > 0 ? ' ' : null}
+          <span className="relative inline-block mr-[0.28em] my-[0.04em]">
+            <span
+              className={`swr-word inline-block ${
+                tok.accent ? 'serif-accent normal-case text-[1.12em]' : ''
+              }`}
+              data-accent={tok.accent}
+            >
+              {tok.t}
+            </span>
           </span>
-        </span>
+        </React.Fragment>
       ))}
     </p>
   );

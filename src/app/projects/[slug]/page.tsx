@@ -17,9 +17,13 @@ export async function generateMetadata({ params }: PageProps) {
   return {
     title: project.title,
     description: project.description,
+    alternates: {
+      canonical: `${site.url}/projects/${project.slug}`,
+    },
     openGraph: {
       title: `${project.title} | ${site.name}`,
       description: project.description,
+      url: `${site.url}/projects/${project.slug}`,
       type: 'website',
     },
     twitter: {
@@ -41,5 +45,32 @@ export default async function ProjectPage({ params }: PageProps) {
   const { slug } = await params;
   const project = getProjectBySlug(slug);
   if (!project) notFound();
-  return <ProjectDetails key={project.slug} project={project} />;
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: site.url,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: project.title,
+        item: `${site.url}/projects/${project.slug}`,
+      },
+    ],
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <ProjectDetails key={project.slug} project={project} />
+    </>
+  );
 }

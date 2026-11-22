@@ -73,7 +73,7 @@ export default function ProjectDetails({ project }: { project: Project }) {
             aria-label={project.title}
             className="font-display font-semibold tracking-[-0.045em] leading-[0.98] sm:leading-[1.02] text-[clamp(2.25rem,6.5vw,5.5rem)] mb-6 sm:mb-8"
           >
-            <span aria-hidden="true" className="pd-title-text block">
+            <span className="pd-title-text block">
               {project.title}
             </span>
           </h1>

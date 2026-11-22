@@ -1,0 +1,42 @@
+# Muheeb Ahmed
+
+> Full-stack web developer in Karachi, Pakistan, building web applications with React, TypeScript, Node.js, and PHP.
+
+Portfolio: https://muheeb.is-a.dev
+Contact: mailto:muheebtechsec@gmail.com
+
+## About
+
+Muheeb Ahmed is a full-stack web developer who builds modern web experiences across frontend, backend, and database layers. His portfolio includes project details, technologies used, and links to live demos and source repositories.
+
+## Projects
+
+### CashFlow Tracker
+
+A full-stack expense tracker for managing daily spending, setting budgets, and tracking savings.
+
+- Portfolio page: https://muheeb.is-a.dev/projects/cashflow-tracker
+- Live demo: https://cash-ft.netlify.app/
+- Source: https://github.com/muheeb-codes/cashflow-tracker
+
+### Weather App
+
+A weather dashboard with real-time forecasts and location-based data for any city.
+
+- Portfolio page: https://muheeb.is-a.dev/projects/weather-app
+- Live demo: https://herecast.netlify.app/
+- Source: https://github.com/muheeb-codes/Weather-app
+
+### Picnic Organizer
+
+A browser-based planner for organizing outdoor activities and gatherings.
+
+- Portfolio page: https://muheeb.is-a.dev/projects/picnic-organizer
+- Live demo: https://picnic-organizer.netlify.app/
+- Source: https://github.com/muheeb-codes/picnic-organizer
+
+## Profiles
+
+- GitHub: https://github.com/muheeb-codes
+- LinkedIn: https://www.linkedin.com/in/muheeb-ahmed/
+- X: https://x.com/MuheebAhme2025

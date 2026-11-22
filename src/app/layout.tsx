@@ -12,16 +12,30 @@ export const viewport: Viewport = {
   themeColor: '#11100E',
 };
 
-const personJsonLd = {
+const siteJsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'Person',
-  name: site.name,
-  url: site.url,
-  jobTitle: 'Full-Stack Web Developer',
-  email: `mailto:${site.email}`,
-  image: `${site.url}/icon-512.png`,
-  sameAs: [socials.github.href, socials.linkedin.href, socials.x.href],
-  knowsAbout: ['React', 'TypeScript', 'Next.js', 'Node.js', 'Express', 'PHP', 'Laravel', 'SQL', 'MongoDB'],
+  '@graph': [
+    {
+      '@type': 'Person',
+      '@id': `${site.url}/#person`,
+      name: site.name,
+      url: site.url,
+      jobTitle: 'Full-Stack Web Developer',
+      email: `mailto:${site.email}`,
+      image: `${site.url}/about/muheeb.jpeg`,
+      sameAs: [socials.github.href, socials.linkedin.href, socials.x.href],
+      knowsAbout: ['React', 'TypeScript', 'Next.js', 'Node.js', 'Express', 'PHP', 'Laravel', 'SQL', 'MongoDB'],
+      mainEntityOfPage: { '@id': `${site.url}/#website` },
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${site.url}/#website`,
+      name: `${site.name} Portfolio`,
+      url: site.url,
+      description: site.tagline,
+      publisher: { '@id': `${site.url}/#person` },
+    },
+  ],
 };
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -31,7 +45,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               "(function(d){d.classList.add('js');try{var r=matchMedia('(prefers-reduced-motion: reduce)').matches;var a=+localStorage.getItem('preloader-seen-at')||0;if(!r&&!(a&&Date.now()-a<43200000))d.classList.add('pl')}catch(e){}})(document.documentElement)", }} />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }}
         />
       </head>
       <body

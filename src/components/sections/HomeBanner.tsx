@@ -284,7 +284,7 @@ const HomeBanner = () => {
             aria-label={site.name}
             className="hero-hide select-none leading-none cursor-default mb-6 md:mb-4"
           >
-            <span aria-hidden="true" className="block">
+            <span className="block">
               <span
                 data-hero-line
                 className="block font-display font-semibold text-hero tracking-[-0.055em]"

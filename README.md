@@ -12,6 +12,7 @@ The personal portfolio of [**Aitezaz Sikandar**](https://github.com/aitezazdev).
 - **Persistent Curve Navigation:** Dennis Snellenberg-inspired full-screen menu with dynamic SVG curve morphing and GPU-composited drawer transitions.
 - **Generative HTML5 Canvases:** Dual interactive canvas backgrounds including a constellation node mesh (`AmbientGeometry`) and a Perlin noise particle flow field (`FlowField`).
 - **Resilient Contact Form:** Multi-channel email delivery using Resend API with Gmail SMTP fallback, honeypot spam protection, rate limiting, and a local dev file-logger (`messages.txt`).
+- **Search & AI Discovery:** Per-page metadata, canonical URLs, robots.txt, sitemap.xml, JSON-LD, and a concise [`llms.txt`](public/llms.txt) project index.
 - **Editorial Brutalist Design:** Void Emerald high-contrast palette pairing deep forest inky blacks (`#0A0F0D`) with radiant emerald highlights (`#34D399`) and Space Grotesk / Instrument Serif typography tokens.
 - **Type-Safe Dynamic Routing:** Next.js App Router with Static Site Generation (SSG) for all project case studies (`/projects/[slug]`).
 - **Accessible & Performance-First:** Native `prefers-reduced-motion` compliance, accessible keyboard drawer traps, and zero third-party render-blocking dependencies.

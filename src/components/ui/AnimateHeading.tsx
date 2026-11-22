@@ -96,21 +96,23 @@ const AnimatedHeading: React.FC<AnimatedHeadingProps> = ({
         className={`font-display font-semibold tracking-[-0.045em] leading-[0.95] ${className}`}
         aria-label={plainText}
       >
-        <span aria-hidden="true" className="flex flex-wrap items-baseline gap-x-[0.24em]">
+        <span className="flex flex-wrap items-baseline gap-x-[0.24em]">
           {resolvedWords.map((word, i) => (
-            <span
-              key={`${word.t}-${i}`}
-              className={`ah-word relative inline-block overflow-visible ${
-                word.serif ? `serif-accent normal-case font-normal text-[1.04em] ${accentClassName}` : ''
-              }`}
-              style={{
-                paddingBottom: '0.14em',
-                marginBottom: '-0.14em',
-                ...(word.serif ? {} : {}),
-              }}
-            >
-              {word.t}
-            </span>
+            <React.Fragment key={`${word.t}-${i}`}>
+              {i > 0 ? ' ' : null}
+              <span
+                className={`ah-word relative inline-block overflow-visible ${
+                  word.serif ? `serif-accent normal-case font-normal text-[1.04em] ${accentClassName}` : ''
+                }`}
+                style={{
+                  paddingBottom: '0.14em',
+                  marginBottom: '-0.14em',
+                  ...(word.serif ? {} : {}),
+                }}
+              >
+                {word.t}
+              </span>
+            </React.Fragment>
           ))}
         </span>
       </h2>
