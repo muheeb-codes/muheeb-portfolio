@@ -1,8 +1,8 @@
 # Portfolio
 
-The personal portfolio of [**Aitezaz Sikandar**](https://github.com/aitezazdev). Built with **Next.js 15**, **React 19**, **GSAP 3**, and **Lenis**, featuring hardware-accelerated motion choreography, interactive HTML5 canvas simulations, seamless page transitions, and an vermilion-accented dark editorial design.
+The personal portfolio of muheeb ahmed. Built with **Next.js 15**, **React 19**, **GSAP 3**, and **Lenis**, featuring hardware-accelerated motion choreography, interactive HTML5 canvas simulations, seamless page transitions, and an vermilion-accented dark editorial design.
 
-**Live Site:** [aitezazdev.vercel.app](https://aitezazdev.vercel.app)
+**Live Site:** muheeb.is-a.dev
 
 ---
 
@@ -38,14 +38,17 @@ The personal portfolio of [**Aitezaz Sikandar**](https://github.com/aitezazdev).
 
 All environment variables are **completely optional** for local development. Anyone cloning or forking this repository can run the project immediately without configuring any environment variables.
 
+Google Tag Manager (`GTM-KJMB6XT7`) is installed in the root layout and does not require environment configuration.
+
 | Variable | Type | Default | Description |
 |---|---|---|---|
-| `NEXT_PUBLIC_GA_ID` | Optional | `undefined` | Google Analytics Measurement ID (`G-XXXXXXXXXX`). When omitted, Google Analytics is cleanly skipped with zero network requests and zero runtime errors. |
 | `RESEND_API_KEY` | Optional | `undefined` | Resend REST API key (`re_...`). Primary delivery provider for contact inquiries. |
 | `GMAIL_APP_PASSWORD` | Optional | `undefined` | Gmail SMTP 16-character App Password. Used as fallback email delivery via Nodemailer. |
 | `CONTACT_EMAIL` | Optional | `site.email` | Destination email address for contact form submissions. Defaults to `aitezazsikandar@gmail.com`. |
 
 > **Note for forks & clones:** In development (`NODE_ENV === 'development'`), if neither `RESEND_API_KEY` nor `GMAIL_APP_PASSWORD` is configured, form submissions are logged locally to `messages.txt` in the project root so the UI can be tested end-to-end without real email credentials.
+>
+> **Production:** Configure `RESEND_API_KEY` or `GMAIL_APP_PASSWORD` in the deployment environment. Without either provider configured, the contact form returns a server email configuration error.
 
 ---
 
